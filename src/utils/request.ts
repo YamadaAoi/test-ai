@@ -1,15 +1,49 @@
-import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import axios from 'axios'
+import type {
+  Axios,
+  AxiosDefaults,
+  AxiosHeaderValue,
+  AxiosRequestConfig,
+  AxiosResponse,
+  CreateAxiosDefaults,
+  HeadersDefaults
+} from 'axios'
+import { getAuth } from './auth'
 
-const settings: AxiosRequestConfig = {
-  baseURL: import.meta.env.VITE_API_BASE
+interface CustomAxiosInstance extends Axios {
+  <T = any, R = T, D = any>(config: AxiosRequestConfig<D>): Promise<R>
+  <T = any, R = T, D = any>(
+    url: string,
+    config?: AxiosRequestConfig<D>
+  ): Promise<R>
+
+  create(config?: CreateAxiosDefaults): CustomAxiosInstance
+  defaults: Omit<AxiosDefaults, 'headers'> & {
+    headers: HeadersDefaults & {
+      [key: string]: AxiosHeaderValue
+    }
+  }
 }
-const request = axios.create(settings)
+
+/**
+ * axios实例
+ * 请求拦截器内塞入Authorization
+ * 响应拦截器内拦截401状态和业务非200状态
+ * example: return request<ReturnValue>({ url: '', method: 'get' })
+ */
+const request: CustomAxiosInstance = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE
+})
+
 request.defaults.timeout = 3 * 60 * 1000
+
 //  请求拦截器
 request.interceptors.request.use(config => {
-  config.headers.Authorization = `Bearer xxx`
+  config.headers.Authorization = `Bearer ${getAuth()?.token}`
   return config
 })
+
 // 响应拦截器
 request.interceptors.response.use(
   (response: AxiosResponse) => {
