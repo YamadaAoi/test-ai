@@ -6,7 +6,8 @@
 
 ## 设计图
 
-- 登录页图片：`src\views\login\doc\preview\login.png`
+- 查看并尽可能还原设计图：`src\views\login\doc\preview\login.png`
+- 若背景和图标缺失，可酌情自由发挥，常见图标可以采用`@element-plus/icons-vue`提供的
 
 ## 功能
 
