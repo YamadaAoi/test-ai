@@ -4,9 +4,9 @@
 
 - `src\views\login\LoginPage.vue`
 
-## 预览
+## 设计图
 
-- `src\views\login\doc\preview\login.png`
+- 登录页图片：`src\views\login\doc\preview\login.png`
 
 ## 功能
 

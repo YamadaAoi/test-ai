@@ -3,7 +3,7 @@
 ## Project Overview
 
 Vue 3 + TypeScript project using Element Plus, Pinia, Vue Router, Vite, and Vitest.
-This is a frontend application with auto-import support for Element Plus components.
+Components are auto-imported via unplugin-vue-components.
 
 ## Build / Lint / Test Commands
 
@@ -33,22 +33,12 @@ pnpm format           # Prettier format (src/ only)
 
 - **Semicolons**: No
 - **Quotes**: Single quotes
-- **Print width**: 100 characters (max_line_length)
+- **Print width**: 100 characters
 - **Tab width**: 2 spaces
-- **Use tabs**: No (spaces)
 - **End of line**: LF
 - **Charset**: UTF-8
 - **Trim trailing whitespace**: Yes
 - **Insert final newline**: Yes
-
-### Editor Config (.editorconfig)
-
-- Indentation: 2 spaces
-- Line endings: LF
-- Charset: UTF-8
-- Trim trailing whitespace: Yes
-- Insert final newline: Yes
-- Max line length: 100
 
 ### TypeScript Rules
 
@@ -65,15 +55,14 @@ pnpm format           # Prettier format (src/ only)
 - Prefix props variables with `props.` in template
 - Use `function` keyword for setup functions (not arrow functions)
 - Break down components into smaller, reusable parts
-- Vue files should have single root element in template
+- Single root element in template
 
 ### Element Plus
 
 - Use Element Plus components to avoid reinventing wheels
-- Components are auto-imported via unplugin-vue-components
-- Icons are available via `@element-plus/icons-vue`
-- Component docs: `https://cn.element-plus.org/zh-CN/component/${component}`
-- Component overview: `https://cn.element-plus.org/zh-CN/component/overview`
+- Components are auto-imported
+- Icons via `@element-plus/icons-vue` (globally registered)
+- Docs: `https://cn.element-plus.org/zh-CN/component/${component}`
 
 ### Import Conventions
 
@@ -85,38 +74,36 @@ pnpm format           # Prettier format (src/ only)
 
 ### Naming Conventions
 
-- **Components**: PascalCase (e.g., `UserProfile.vue`)
-- **Files**: kebab-case (e.g., `auth-helper.ts`)
-- **Functions**: camelCase (e.g., `getAuthToken()`)
-- **Classes/Types**: PascalCase (e.g., `UserInfo`)
-- **Constants**: SCREAMING_SNAKE_CASE for config constants
-- **Stores**: Prefix with `use` (e.g., `useCounterStore`)
+- **Components**: PascalCase (`UserProfile.vue`)
+- **Files**: kebab-case (`auth-helper.ts`)
+- **Functions**: camelCase (`getAuthToken()`)
+- **Classes/Types**: PascalCase (`UserInfo`)
+- **Constants**: SCREAMING_SNAKE_CASE
+- **Stores**: Prefix with `use` (`useCounterStore`)
 
 ## Layout Guidelines
 
 - Design: 1920×1080 pixels
-- Basic responsive capability using flex and percentages
+- Basic responsive with flex and percentages
 - Avoid absolute positioning when possible
-- Don't require 100% design fidelity, but ensure all elements are present
-- Missing background images are acceptable
-- Use Element Plus icons for small icons
+- Don't require 100% design fidelity, but ensure all elements present
+- Use Element Plus icons
 
 ## Project Structure
 
 ```
 src/
 ├── __tests__/          # Unit tests (*.spec.ts)
-├── router/             # Vue Router config
-├── stores/             # Pinia stores (composition API style)
-├── views/              # Page components
-├── utils/              # Utility functions (request, auth, etc.)
-├── App.vue             # Root component
-└── main.ts             # Entry point
+├── api/               # API request functions
+├── router/            # Vue Router config
+├── stores/            # Pinia stores (composition API)
+├── views/             # Page components
+├── utils/             # Utilities (request, auth)
+├── App.vue
+└── main.ts
 ```
 
 ## State Management (Pinia)
-
-Use composition API style stores:
 
 ```typescript
 import { ref, computed } from 'vue'
@@ -125,37 +112,24 @@ import { defineStore } from 'pinia'
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
   const doubleCount = computed(() => count.value * 2)
-
   function increment() {
     count.value++
   }
-
   return { count, doubleCount, increment }
 })
 ```
 
-## API / HTTP Conventions
+## API / HTTP
 
-- Use the centralized `request` utility in `src/utils/request.ts`
-- It wraps axios with interceptors for auth tokens
+- Use `src/utils/request.ts` (axios with auth interceptors)
 - Define types for request and response parameters
-- Handle errors with try/catch in async functions
-- Check response status and handle 401 (unauthorized) appropriately
-
-```typescript
-try {
-  const result = await request({ url: '/api/endpoint', method: 'get' })
-} catch (error) {
-  console.error('API Error:', error)
-}
-```
+- Handle errors with try/catch, check 401 responses
 
 ## Error Handling
 
 - Use proper error types instead of generic `Error`
 - Handle async operations with try/catch
 - Log errors appropriately for debugging
-- Use Promise.reject() for error propagation in interceptors
 
 ## Testing
 
@@ -163,46 +137,10 @@ try {
 - Test files: `src/__tests__/*.spec.ts`
 - Use `@vue/test-utils` for component mounting
 
-```typescript
-import { mount } from '@vue/test-utils'
-import App from '../App.vue'
-
-describe('App', () => {
-  it('mounts renders properly', () => {
-    const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
-  })
-})
-```
-
 ## Environment Variables
 
 - Use `import.meta.env` for environment variables
-- Prefix variables with `VITE_` for client-side access
-- Examples: `import.meta.env.VITE_API_BASE`
-
-## Configuration Files
-
-- `vite.config.ts` - Vite configuration
-- `vitest.config.ts` - Vitest configuration
-- `tsconfig.app.json` - TypeScript config for app
-- `tsconfig.vitest.json` - TypeScript config for tests
-- `eslint.config.ts` - ESLint configuration
-- `.prettierrc.cjs` - Prettier configuration
-
-## VS Code Settings (for reference)
-
-- Format on save enabled
-- Prettier as default formatter
-- File nesting enabled for config files
-
-## ESLint Exclusions
-
-The following directories are ignored by ESLint:
-
-- `**/dist/**`
-- `**/dist-ssr/**`
-- `**/coverage/**`
+- Prefix with `VITE_` for client-side access
 
 ## CSS / Styling
 
@@ -210,14 +148,13 @@ The following directories are ignored by ESLint:
 - SCSS is supported
 - Follow BEM-like naming for CSS classes when needed
 
-## Git Conventions
-
-- Write clear, concise commit messages
-- Use present tense: "add feature" not "added feature"
-- Reference issue numbers in commit messages when applicable
-
 ## OpenCode Configuration
 
 - Instructions from `docs/**/*.md` are used
 - Watcher ignores: `node_modules/**`, `dist/**`, `.git/**`
-- Webfetch is allowed
+
+## Git Conventions
+
+- Write clear, concise commit messages
+- Use present tense: "add feature" not "added feature"
+- Reference issue numbers when applicable
