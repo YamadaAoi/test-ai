@@ -1,114 +1,153 @@
-# AGENTS.md - Agent Coding Guidelines
+# Agent Coding Guidelines
+
+This document provides guidelines for AI agents working in this Vue 3 + TypeScript project.
 
 ## Project Overview
 
-Vue 3 + TypeScript project using Element Plus, Pinia, Vue Router, Vite, and Vitest.
-Components are auto-imported via unplugin-vue-components.
+- **Framework**: Vue 3.5.22 with Composition API
+- **State Management**: Pinia 3.0.3
+- **UI Library**: Element Plus 2.13.5
+- **Build Tool**: Vite 7.1.11
+- **Language**: TypeScript ~5.9.0
+- **Node Version**: ^20.19.0 || >=22.12.0
 
-## Build / Lint / Test Commands
+## Commands
 
 ```bash
-# Development
-pnpm dev              # Start Vite dev server
-pnpm preview         # Preview production build
-
-# Build
-pnpm build           # Full build (type-check + build)
-pnpm build-only     # Build only (skip type-check)
-
-# Testing
-pnpm test:unit                  # Run all unit tests (watch mode)
-pnpm test:unit src/__tests__/App.spec.ts   # Run single test file
-pnpm test:unit -- --run        # Run tests once (no watch mode)
-
-# Linting & Type Checking
-pnpm lint             # ESLint with auto-fix
-pnpm type-check       # TypeScript type checking
-pnpm format           # Prettier format (src/ only)
+npm run dev          # Start dev server
+npm run preview      # Preview production build
+npm run build        # Full build with type-check
+npm run build-only   # Vite build only
+npm run type-check   # vue-tsc type checking
+npm run lint         # ESLint with auto-fix
+npm run format       # Prettier format (src/ only)
+npm run test:unit                       # Run all unit tests
+npm run test:unit -- --run               # Run tests once (non-watch)
+npm run test:unit src/__tests__/App.spec.ts  # Run single test file
+npm run test:unit -- --run -t "test name"     # Run single test by name
 ```
 
-## Code Style Guidelines
+## Code Style
 
-### Formatting (Prettier + EditorConfig)
+### General Rules
 
-- **Semicolons**: No
-- **Quotes**: Single quotes
-- **Print width**: 100 characters
-- **Tab width**: 2 spaces
-- **End of line**: LF
-- **Charset**: UTF-8
-- **Trim trailing whitespace**: Yes
-- **Insert final newline**: Yes
+- Use **TypeScript** for all files; avoid `any` when possible
+- Use **ESLint + Prettier** for formatting; run `npm run lint` before committing
+- Use **Composition API** with `<script setup>` for Vue components
 
-### TypeScript Rules
-
-- Avoid `any` - use proper types
-- Prefer `interface` over `type` for object type definitions
-- Enable strict null checks
-- Use readonly arrays and properties when possible
-- Define proper return types for functions
-- Use generic types for reusable components
-
-### Vue Rules
-
-- Use `<script setup lang="ts">` syntax
-- Prefix props variables with `props.` in template
-- Use `function` keyword for setup functions (not arrow functions)
-- Break down components into smaller, reusable parts
-- Single root element in template
-
-### Element Plus
-
-- Use Element Plus components to avoid reinventing wheels
-- Components are auto-imported
-- Icons via `@element-plus/icons-vue` (globally registered)
-- Docs: `https://cn.element-plus.org/zh-CN/component/${component}`
-
-### Import Conventions
-
-- Use `@/` alias for imports from `src/` directory
-- Order: Vue imports → Third-party → Internal modules
-- Sort imports alphabetically within each group
-- Use absolute imports with `@/` for internal code
-- Import types separately: `import type { SomeType } from '...'`
-
-### Naming Conventions
-
-- **Components**: PascalCase (`UserProfile.vue`)
-- **Files**: kebab-case (`auth-helper.ts`)
-- **Functions**: camelCase (`getAuthToken()`)
-- **Classes/Types**: PascalCase (`UserInfo`)
-- **Constants**: SCREAMING_SNAKE_CASE
-- **Stores**: Prefix with `use` (`useCounterStore`)
-
-## Layout Guidelines
-
-- Design: 1920×1080 pixels
-- Basic responsive with flex and percentages
-- Avoid absolute positioning when possible
-- Don't require 100% design fidelity, but ensure all elements present
-- Use Element Plus icons
-
-## Project Structure
+### File Organization
 
 ```
 src/
-├── __tests__/          # Unit tests (*.spec.ts)
-├── api/               # API request functions
-├── router/            # Vue Router config
-├── stores/            # Pinia stores (composition API)
-├── views/             # Page components
-├── utils/             # Utilities (request, auth)
-├── App.vue
-└── main.ts
+├── api/           # API request functions
+├── components/    # Reusable Vue components
+├── views/         # Page components
+├── router/        # Vue Router configuration
+├── stores/        # Pinia stores
+├── utils/         # Utility functions
+├── __tests__/     # Unit tests
+└── assets/        # Static assets
 ```
 
-## State Management (Pinia)
+### Imports
+
+Use **path aliases**: `@/` maps to `src/`. Order: external libraries → internal modules.
+
+```typescript
+import { ref, computed } from 'vue' // External
+import { defineStore } from 'pinia' // External
+import request from '@/utils/request' // Internal
+import { useUserStore } from '@/stores/user' // Internal
+```
+
+### Naming Conventions
+
+| Type        | Convention  | Example         |
+| ----------- | ----------- | --------------- |
+| Files (Vue) | PascalCase  | `LoginPage.vue` |
+| Files (TS)  | camelCase   | `loginReq.ts`   |
+| Components  | PascalCase  | `LoginPage`     |
+| Functions   | camelCase   | `login()`       |
+| Variables   | camelCase   | `userName`      |
+| Constants   | UPPER_SNAKE | `API_BASE_URL`  |
+| Interfaces  | PascalCase  | `LoginParams`   |
+| Stores      | useXxxStore | `useUserStore`  |
+
+### TypeScript Guidelines
+
+- Use `interface` for object shapes, `type` for unions/aliases
+- Export interfaces alongside API functions
+- Avoid `any`; use `unknown` when uncertain
+
+### Vue Component Patterns
+
+Use `<script setup lang="ts">` with Composition API:
+
+```vue
+<template>
+  <div class="name">{{ msg }}</div>
+</template>
+<script setup lang="ts">
+defineProps<{ title: string }>()
+defineEmits<{ change: [value: string] }>()
+const msg = ref('Hello')
+</script>
+<style scoped>
+.name {
+  color: red;
+}
+</style>
+```
+
+### Routing
+
+Use **lazy loading** for all route components:
+
+```typescript
+component: () => import('../views/login/LoginPage.vue')
+```
+
+### API/Request Patterns
+
+Use the shared `request` instance from `@/utils/request`. Define interfaces in the same file. Handle errors with try-catch and throw meaningful errors.
+
+```typescript
+interface LoginParams {
+  userName: string
+  password: string
+}
+interface LoginResult {
+  code: number
+  data?: { token: string }
+  msg?: string
+}
+export async function login(params: LoginParams): Promise<boolean> {
+  const result = await request<LoginResult>({
+    url: '/login',
+    method: 'post',
+    data: params
+  })
+  if (result.code === 0 && result.data) {
+    saveAuth(result.data.token)
+    return true
+  }
+  throw new Error(result.msg || 'Login failed')
+}
+```
+
+### Error Handling
+
+- Use try-catch for async operations
+- Throw descriptive errors with messages
+- Handle HTTP errors in axios interceptors (see `src/utils/request.ts`)
+
+### Pinia Stores
+
+Use the setup store syntax:
 
 ```typescript
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
   const doubleCount = computed(() => count.value * 2)
@@ -119,42 +158,19 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
-## API / HTTP
+### Testing
 
-- Use `src/utils/request.ts` (axios with auth interceptors)
-- Define types for request and response parameters
-- Handle errors with try/catch, check 401 responses
+- Place tests in `src/__tests__/` or co-located with `*.spec.ts`
+- Use `@vue/test-utils` for component testing
+- Use `vitest` as the test runner
 
-## Error Handling
+### CSS/Sass
 
-- Use proper error types instead of generic `Error`
-- Handle async operations with try/catch
-- Log errors appropriately for debugging
+- Use `<style scoped>` for component-specific styles
+- Use SCSS syntax (project has `sass-embedded`)
 
-## Testing
+### Additional Notes
 
-- Framework: Vitest with jsdom environment
-- Test files: `src/__tests__/*.spec.ts`
-- Use `@vue/test-utils` for component mounting
-
-## Environment Variables
-
-- Use `import.meta.env` for environment variables
-- Prefix with `VITE_` for client-side access
-
-## CSS / Styling
-
-- Use `<style scoped>` for component-scoped styles
-- SCSS is supported
-- Follow BEM-like naming for CSS classes when needed
-
-## OpenCode Configuration
-
-- Instructions from `docs/**/*.md` are used
-- Watcher ignores: `node_modules/**`, `dist/**`, `.git/**`
-
-## Git Conventions
-
-- Write clear, concise commit messages
-- Use present tense: "add feature" not "added feature"
-- Reference issue numbers when applicable
+- Element Plus icons available via `@element-plus/icons-vue`
+- Environment variables use `VITE_` prefix (e.g., `import.meta.env.VITE_API_BASE`)
+- Auto-imports configured for Vue, Pinia, and Element Plus components
