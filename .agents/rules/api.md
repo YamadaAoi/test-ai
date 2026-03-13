@@ -1,5 +1,6 @@
 ---
 name: 接口请求
+trigger: always_on
 ---
 
 # api Rules

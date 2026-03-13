@@ -1,5 +1,6 @@
 ---
 name: TypeScript 最佳实践
+trigger: always_on
 globs: ['**/*.ts', '**/*.tsx', '**/*.vue']
 ---
 

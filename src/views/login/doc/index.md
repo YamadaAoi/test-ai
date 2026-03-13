@@ -6,8 +6,8 @@
 
 ## 设计图
 
-- 查看并尽可能还原设计图：`src\views\login\doc\preview\login.png`
-- 若背景和图标缺失，可酌情自由发挥，常见图标可以采用`@element-plus/icons-vue`提供的
+- `sketch`设计稿核心文件内容位于`./sketch/login.json`，请读取并参照此json文件绘制页面，注意使用自适应布局，慎重使用绝对定位
+- 背景和图标位于json同一层级，绘制页面时选择合适的图片，并生成正确的路径
 
 ## 功能
 

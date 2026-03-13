@@ -1,5 +1,6 @@
 ---
 name: elemnt-plus 最佳实践
+trigger: always_on
 globs: ['**/*.vue']
 ---
 
