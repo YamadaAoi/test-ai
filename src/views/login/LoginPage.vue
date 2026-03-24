@@ -1,381 +1,255 @@
 <template>
   <div class="login-page">
-    <div class="background">
-      <img
-        class="bg-image"
-        src="./doc/sketch/assets/背景.jpg"
-        alt="background"
-      />
-    </div>
-
-    <div class="left-decoration">
-      <img class="electric" src="./doc/sketch/assets/电流.png" alt="electric" />
-      <img class="glow-circle" src="./doc/sketch/assets/圆光.png" alt="glow" />
-      <img class="base" src="./doc/sketch/assets/底座.png" alt="base" />
-
-      <div class="bubbles">
-        <img
-          class="bubble bubble-1"
-          src="./doc/sketch/assets/泡1.png"
-          alt="bubble1"
-        />
-        <img
-          class="bubble bubble-2"
-          src="./doc/sketch/assets/泡2.png"
-          alt="bubble2"
-        />
-        <img
-          class="bubble bubble-3"
-          src="./doc/sketch/assets/泡3.png"
-          alt="bubble3"
-        />
-        <img
-          class="bubble bubble-4"
-          src="./doc/sketch/assets/泡4.png"
-          alt="bubble4"
-        />
-        <img
-          class="bubble bubble-5"
-          src="./doc/sketch/assets/泡5.png"
-          alt="bubble5"
-        />
-      </div>
-    </div>
+    <div class="decor decor-electricity"></div>
+    <div class="decor decor-glow"></div>
+    <div class="decor decor-base"></div>
+    <div class="decor decor-bubble decor-bubble-1"></div>
+    <div class="decor decor-bubble decor-bubble-2"></div>
+    <div class="decor decor-bubble decor-bubble-3"></div>
+    <div class="decor decor-bubble decor-bubble-4"></div>
+    <div class="decor decor-bubble decor-bubble-5"></div>
+    <div class="decor decor-diamond"></div>
 
     <div class="login-card">
+      <div class="logo-wrap">
+        <div class="logo" :style="{ backgroundImage: `url(${logoUrl})` }"></div>
+      </div>
       <h1 class="title">电磁监测处置系统</h1>
-
-      <el-form
-        ref="formRef"
-        :model="form"
-        :rules="rules"
-        class="login-form"
-        @submit.prevent="handleLogin"
-      >
-        <el-form-item prop="userName">
-          <el-input
-            v-model="form.userName"
-            placeholder="请输入账号"
-            :prefix-icon="User"
-            size="large"
-            clearable
-          />
-        </el-form-item>
-
-        <el-form-item prop="password">
-          <el-input
-            v-model="form.password"
-            type="password"
-            placeholder="请输入密码"
-            :prefix-icon="Lock"
-            size="large"
-            show-password
-            clearable
-            @keyup.enter="handleLogin"
-          />
-        </el-form-item>
-
-        <el-form-item>
-          <el-button
-            type="primary"
-            size="large"
-            :loading="loading"
-            class="login-button"
-            @click="handleLogin"
-          >
-            {{ loading ? '登录中...' : '登 录' }}
-          </el-button>
-        </el-form-item>
-      </el-form>
+      <div class="input-group">
+        <el-icon class="input-icon"><User /></el-icon>
+        <input
+          v-model="form.userName"
+          class="input"
+          placeholder="请输入用户名"
+        />
+      </div>
+      <div class="input-group">
+        <el-icon class="input-icon"><Lock /></el-icon>
+        <input
+          v-model="form.password"
+          class="input"
+          type="password"
+          placeholder="请输入密码"
+        />
+      </div>
+      <button class="submit-btn" @click="handleLogin">登 录</button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue'
+import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import { ElMessage, type FormInstance, type FormRules } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
 import { login } from '@/api/login/loginReq'
+import logoUrl from '@/assets/login/logo.png'
 
 const router = useRouter()
-const formRef = ref<FormInstance>()
-const loading = ref(false)
 
 const form = reactive({
   userName: '',
   password: ''
 })
 
-const rules: FormRules = {
-  userName: [{ required: true, message: '请输入账号', trigger: 'blur' }],
-  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
-}
-
 async function handleLogin() {
-  if (!formRef.value) return
-
+  if (!form.userName || !form.password) {
+    ElMessage.warning('请输入用户名和密码')
+    return
+  }
   try {
-    await formRef.value.validate()
-    loading.value = true
-
-    await login({
-      userName: form.userName,
-      password: form.password
-    })
-
+    await login({ userName: form.userName, password: form.password })
     ElMessage.success('登录成功')
     router.push('/')
-  } catch (error) {
-    if (error instanceof Error) {
-      ElMessage.error(error.message || '登录失败')
-    }
-  } finally {
-    loading.value = false
+  } catch (err) {
+    ElMessage.error(err instanceof Error ? err.message : '登录失败')
   }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .login-page {
   width: 100vw;
   height: 100vh;
-  position: relative;
   overflow: hidden;
+  position: relative;
+  background: url('@/assets/login/背景.jpg') center / cover no-repeat;
 }
 
-.background {
+.decor {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 
-.bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.left-decoration {
-  position: absolute;
-  left: 0;
+.decor-electricity {
+  left: 0.52%;
   top: 0;
-  width: 65%;
-  height: 100%;
-  z-index: 1;
+  width: 61.3%;
+  height: 75.65%;
+  background-image: url('@/assets/login/电流.png');
 }
 
-.electric {
-  position: absolute;
-  left: 10px;
-  top: 0;
-  width: 1177px;
-  height: 817px;
-  pointer-events: none;
+.decor-glow {
+  left: 9.48%;
+  top: 6.02%;
+  width: 42%;
+  height: 74.63%;
+  background-image: url('@/assets/login/圆光.png');
 }
 
-.glow-circle {
-  position: absolute;
-  left: 182px;
-  top: 65px;
-  width: 806px;
-  height: 806px;
-  pointer-events: none;
-}
-
-.base {
-  position: absolute;
-  left: 273px;
-  bottom: 0;
-  width: 626px;
-  height: 391px;
-  pointer-events: none;
+.decor-base {
+  left: 14.22%;
+  top: 53.24%;
+  width: 32.6%;
+  height: 36.2%;
+  background-image: url('@/assets/login/底座.png');
   opacity: 0.88;
 }
 
-.bubbles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.bubble {
-  position: absolute;
-  animation: float 12s ease-in-out infinite;
-}
-
-.bubble-1 {
-  left: 674px;
-  top: 70px;
-  width: 60px;
-  height: 60px;
+.decor-bubble-1 {
+  left: 35.1%;
+  top: 6.48%;
+  width: 3.13%;
+  height: 5.56%;
+  background-image: url('@/assets/login/泡1.png');
   opacity: 0.5;
 }
 
-.bubble-2 {
-  right: 170px;
-  top: 328px;
-  width: 60px;
-  height: 60px;
+.decor-bubble-2 {
+  left: 48.44%;
+  top: 30.37%;
+  width: 3.13%;
+  height: 5.56%;
+  background-image: url('@/assets/login/泡2.png');
   opacity: 0.79;
 }
 
-.bubble-3 {
-  left: 190px;
-  top: 205px;
-  width: 60px;
-  height: 60px;
+.decor-bubble-3 {
+  left: 9.9%;
+  top: 18.98%;
+  width: 3.13%;
+  height: 5.56%;
+  background-image: url('@/assets/login/泡3.png');
   opacity: 0.28;
 }
 
-.bubble-4 {
-  right: 95px;
-  bottom: 108px;
-  width: 66px;
-  height: 66px;
+.decor-bubble-4 {
+  left: 52.34%;
+  top: 81.3%;
+  width: 3.44%;
+  height: 6.11%;
+  background-image: url('@/assets/login/泡4.png');
   opacity: 0.45;
 }
 
-.bubble-5 {
-  left: 250px;
-  bottom: 116px;
-  width: 66px;
-  height: 66px;
+.decor-bubble-5 {
+  left: 13.02%;
+  top: 72.59%;
+  width: 3.44%;
+  height: 6.11%;
+  background-image: url('@/assets/login/泡5.png');
   opacity: 0.9;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+.decor-diamond {
+  left: 11.82%;
+  top: 70.46%;
+  width: 5.83%;
+  height: 10.37%;
+  background-image: url('@/assets/login/位图.png');
+  transform: rotate(81deg);
 }
 
 .login-card {
   position: absolute;
-  right: 14%;
-  top: 18%;
-  width: 528px;
-  height: 613px;
-  z-index: 10;
-  background: linear-gradient(176deg, #1b2769 0%, rgba(41, 55, 127, 0.19) 75%);
-  border: 1px solid;
-  border-image: linear-gradient(166deg, #a6cfff 0%, #839fd7 100%) 1;
-  border-radius: 6px;
-  padding: 80px 89px;
+  right: 6.67%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 27.5%;
+  padding: 0 7.5%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(176deg, #1b2769 0%, rgba(41, 55, 127, 0.19) 75%);
+  border-radius: 6px;
+  padding-top: 11%;
+  padding-bottom: 9%;
 }
 
-.title {
-  font-family: 'Microsoft YaHei', sans-serif;
-  font-size: 32px;
-  font-weight: 400;
-  color: #ffffff;
-  margin: 0 0 111px;
-  letter-spacing: 2px;
-}
-
-.login-form {
-  width: 100%;
-}
-
-.login-form :deep(.el-input__wrapper) {
-  background: rgba(18, 123, 249, 0.1);
-  border: 1px solid rgba(139, 175, 255, 0.56);
-  border-radius: 4px;
-  box-shadow: none;
-  padding: 4px 12px;
-  transition: all 0.3s ease;
-}
-
-.login-form :deep(.el-input__wrapper:hover) {
-  border-color: rgba(139, 175, 255, 0.8);
-}
-
-.login-form :deep(.el-input__wrapper.is-focus) {
-  border-color: #2979ff;
-  box-shadow: 0 0 0 2px rgba(41, 121, 255, 0.2);
-}
-
-.login-form :deep(.el-input__inner) {
-  color: #ffffff;
-  height: 32px;
-  font-family: 'Microsoft YaHei', sans-serif;
-  font-size: 16px;
-}
-
-.login-form :deep(.el-input__inner::placeholder) {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.login-form :deep(.el-input__prefix) {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.login-form :deep(.el-form-item) {
+.logo-wrap {
+  width: 16.8%;
   margin-bottom: 30px;
 }
 
-.login-form :deep(.el-form-item__error) {
-  color: #ff6b6b;
-  font-size: 12px;
-  padding-top: 4px;
+.logo {
+  width: 100%;
+  padding-bottom: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 3px 4px 0 rgba(37, 83, 182, 0.15);
+  border-radius: 50%;
 }
 
-.login-button {
+.title {
+  font-family: MicrosoftYaHei-Bold, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 40px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 18px;
+}
+
+.input {
   width: 100%;
   height: 40px;
+  padding: 0 14px 0 42px;
+  font-size: 16px;
+  color: #fff;
+  background: rgba(18, 123, 249, 0.1);
+  border: 1px solid rgba(139, 175, 255, 0.56);
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.submit-btn {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: MicrosoftYaHei-Bold, sans-serif;
+  color: #fff;
   background: #2979ff;
   border: none;
   border-radius: 4px;
-  font-family: 'Microsoft YaHei', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #ffffff;
   cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 8px;
-}
+  letter-spacing: 4px;
 
-.login-button:hover {
-  background: #3b8aff;
-}
-
-.login-button:active {
-  background: #1a6ae8;
-}
-
-.login-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-@media (max-width: 1400px) {
-  .login-card {
-    right: 8%;
-    width: 450px;
-    padding: 60px 70px;
-  }
-
-  .title {
-    font-size: 28px;
-    margin-bottom: 80px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .left-decoration {
-    display: none;
-  }
-
-  .login-card {
-    right: 50%;
-    transform: translateX(50%);
-    top: 50%;
-    transform: translateX(50%) translateY(-50%);
+  &:hover {
+    opacity: 0.9;
   }
 }
 </style>

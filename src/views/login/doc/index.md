@@ -6,9 +6,14 @@
 
 ## 设计图
 
-- 预览图位于`./sketch/preview/login.png`，请读取并结合一下设计搞文件分析
-- `sketch`设计稿核心文件内容位于`./sketch/login.json`，请读取并严格参照此json文件绘制页面，做到90%的还原度，慎重使用绝对定位
-- 背景和图标位于`./sketch/assets/**`，绘制页面时选择json内的同名图片，并生成正确的图片路径
+- 禁止直接解压zip文件，使用`mcp-sketch_sketch_html_analyze`工具分析设计稿，参数如下：
+- - file_path: `src\views\login\doc\sketch\登录 2html.zip`
+- - page_name: `页面 1`
+- - artboard_name: `00 _登录页`
+- - assets_path: `src\assets\login`
+- 首先使用`bash`工具的`cat`命令完整读取并解析mcp返回的json数据，一定要在json解析成功后再读取并查看mcp返回的预览图片
+- 结合json数据和预览图片，合理推断页面布局（绝对定位是无奈之举，能不用就不用！），输出高质量自适应布局页面，保证90%页面还原度
+- 妥善处理json里的图片，优先使用css背景图片，减少使用img标签
 
 ## 功能
 
