@@ -57,16 +57,6 @@ mock/              # Mock API data (vite-plugin-mock)
 
 No semicolons, single quotes, no trailing commas, 2-space indent, 80 char line width, LF line endings. Arrow functions omit parens when single param.
 
-```typescript
-// Correct
-const name = 'test'
-const doubled = items.map(x => x * 2)
-
-// Wrong
-const name = 'test'
-const doubled = items.map(x => x * 2)
-```
-
 ### Imports
 
 Use `@/` alias (maps to `src/`). Order: external → internal.
@@ -103,7 +93,7 @@ import { useUserStore } from '@/stores/user'
 
 ### Vue Components
 
-Always use `<script setup lang="ts">`, `<style scoped>`:
+Always use `<script setup lang="ts">`, `<style scoped>`. Order: template → script → style.
 
 ```vue
 <template>
@@ -128,10 +118,7 @@ const msg = ref('Hello') // auto-imported
 Always lazy-load route components:
 
 ```typescript
-{
-  path: '/login',
-  component: () => import('@/views/login/LoginPage.vue')
-}
+{ path: '/login', component: () => import('@/views/login/LoginPage.vue') }
 ```
 
 ### API Requests
@@ -139,15 +126,26 @@ Always lazy-load route components:
 Use `request` from `@/utils/request`. Define interfaces in same file. Use try-catch.
 
 ```typescript
-interface LoginParams {
-  userName: string
-  password: string
-}
-
-export async function login(params: LoginParams): Promise<string> {
-  const result = await request.post<ApiResponse>('/login', params)
-  if (result.code === 0) return result.data.token
+export async function login(params: LoginParams): Promise<boolean> {
+  const result = await request<LoginResult>({
+    url: '/login',
+    method: 'post',
+    data: params
+  })
+  if (result.code === 0 && result.data) return true
   throw new Error(result.msg || 'Login failed')
+}
+```
+
+### Error Handling
+
+Use `ElMessage` for user-facing errors. Catch with `instanceof Error`:
+
+```typescript
+try {
+  await login(params)
+} catch (error) {
+  ElMessage.error(error instanceof Error ? error.message : 'Operation failed')
 }
 ```
 
@@ -166,17 +164,28 @@ export const useCounterStore = defineStore('counter', () => {
 })
 ```
 
+### SCSS
+
+Use `lang="scss"` with scoped styles. Nest pseudo-classes and child selectors:
+
+```scss
+.input-group {
+  border: 1px solid #5a5c5e;
+  &:focus-within {
+    border-color: #2979ff;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+```
+
 ### Testing
 
 - Environment: `jsdom` (configured in `vitest.config.ts`)
 - Tests: `src/__tests__/*.spec.ts`
 - Use `@vue/test-utils` for component tests
-
-### Icons
-
-```typescript
-import { User } from '@element-plus/icons-vue'
-```
 
 ## Mock Server
 
@@ -184,8 +193,4 @@ import { User } from '@element-plus/icons-vue'
 
 ## Environment Variables
 
-Prefix with `VITE_` to expose to client:
-
-```typescript
-const base = import.meta.env.VITE_API_BASE
-```
+Prefix with `VITE_` to expose to client: `import.meta.env.VITE_API_BASE`

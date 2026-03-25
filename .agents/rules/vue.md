@@ -11,3 +11,4 @@ globs: ['**/*.vue']
 - 优先使用 `function` 关键字定义 `setup` 中的函数
 - 将组件模块化为更小的、可重用的部分
 - 显式导入`ref`, `reactive`等vue相关函数，避免导入`defineProps`等宏函数
+- 优先使用`css`背景图片，如`background-image: url('@/assets/images/bg.jpg');`，避免使用img标签和直接`import`导入图片

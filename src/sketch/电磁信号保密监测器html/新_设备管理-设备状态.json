@@ -1,0 +1,2031 @@
+{
+  "meta": {
+    "description": "This is sanitized structural data from a Sketch design file.\n              All frame properties (x, y, w, h) are relative to the parent container.\n              Extract the images used to the specified location, please infer the image location reasonably."
+  },
+  "artboard": {
+    "pageName": "新",
+    "pageObjectID": "9022EDD6-E3C2-4385-BC50-3FC0E4703F2A",
+    "name": "设备管理-设备状态",
+    "objectID": "B78C7E99-C4BF-40E8-8E12-072E32F3B866",
+    "width": 1920,
+    "height": 1276,
+    "layers": [
+      {
+        "type": "shape",
+        "name": "Rectangle 2 Copy备份",
+        "rect": {
+          "x": 240,
+          "y": 0,
+          "w": 1680,
+          "h": 64
+        },
+        "styleName": "fill 填充/2辅助 auxiliary 辅助色/9白色",
+        "css": [
+          "background: #FFFFFF;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "超级管理员备份",
+        "rect": {
+          "x": 1812,
+          "y": 22,
+          "w": 60,
+          "h": 20
+        },
+        "styleName": "12px/☀️default/3次要 secondary",
+        "css": [
+          "font-family: MicrosoftYaHei-Bold;",
+          "font-size: 12px;",
+          "color: #898C8F;",
+          "letter-spacing: 0;",
+          "line-height: 20px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/fill/24/箭头/默认-下",
+        "rect": {
+          "x": 1886,
+          "y": 27,
+          "w": 10,
+          "h": 10
+        },
+        "assets": [
+          {
+            "name": "icon/fill/24/箭头/默认-下",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\默认-下.svg"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/fill/24/头像",
+        "rect": {
+          "x": 1782,
+          "y": 19,
+          "w": 26,
+          "h": 26
+        },
+        "assets": [
+          {
+            "name": "icon/fill/24/头像",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\头像.svg"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/fill/24/消息-1",
+        "rect": {
+          "x": 1638,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        },
+        "assets": [
+          {
+            "name": "icon/fill/24/消息-1",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\消息-1.svg"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/fill/24/消息-1备份",
+        "rect": {
+          "x": 1590,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        },
+        "assets": [
+          {
+            "name": "icon/fill/24/清晰模式",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\清晰模式.svg"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/fill/24/皮肤-2",
+        "rect": {
+          "x": 1686,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        },
+        "assets": [
+          {
+            "name": "icon/fill/24/皮肤-2",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\皮肤-2.svg"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/line/24/菜单-2",
+        "rect": {
+          "x": 1734,
+          "y": 20,
+          "w": 24,
+          "h": 24
+        },
+        "assets": [
+          {
+            "name": "icon/line/24/菜单-2",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\菜单-2.svg"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/line/24/菜单收起",
+        "rect": {
+          "x": 230,
+          "y": 22,
+          "w": 20,
+          "h": 20
+        },
+        "assets": [
+          {
+            "name": "icon/line/24/菜单收起",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\菜单收起.svg"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "Rectangle 2 Copy备份 2",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 240,
+          "h": 1276
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级",
+        "css": [
+          "background: #18213E;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 0,
+          "y": 1015.63,
+          "w": 240,
+          "h": 260.37
+        },
+        "css": [
+          "background-image: linear-gradient(222deg, rgba(184,211,255,0.05) 21%, rgba(236,236,236,0.00) 89%);"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "编组 16",
+        "rect": {
+          "x": 15,
+          "y": 26.5,
+          "w": 190,
+          "h": 55
+        },
+        "assets": [
+          {
+            "name": "编组 16",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\编组 16.png"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "BG/fill",
+        "rect": {
+          "x": 0,
+          "y": 123,
+          "w": 240,
+          "h": 56
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级-悬浮",
+        "css": [
+          "background-image: linear-gradient(90deg, rgba(255,255,255,0.20) 2%, rgba(255,255,255,0.00) 100%);"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "color_block",
+        "rect": {
+          "x": 0,
+          "y": 123,
+          "w": 6,
+          "h": 56
+        },
+        "styleName": "fill 填充/1基础色/1安全蓝/安全蓝1-常规",
+        "css": [
+          "background: #2979FF;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "设备管理",
+        "rect": {
+          "x": 66,
+          "y": 139,
+          "w": 120,
+          "h": 22
+        },
+        "styleName": "14px/🌜darken/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei-Bold;",
+          "font-size: 14px;",
+          "color: #FFFFFF;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_设备管理_选中",
+        "rect": {
+          "x": 34,
+          "y": 143,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_设备管理_选中",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_设备管理_选中.png"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "BG/fill",
+        "rect": {
+          "x": 0,
+          "y": 235,
+          "w": 240,
+          "h": 56
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级",
+        "css": [
+          "background: #18213E;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "审计管理",
+        "rect": {
+          "x": 66,
+          "y": 251,
+          "w": 120,
+          "h": 22
+        },
+        "styleName": "14px/🌜darken/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #AFBBE3;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_审计管理",
+        "rect": {
+          "x": 33.9,
+          "y": 254.9,
+          "w": 16.1,
+          "h": 16.1
+        },
+        "assets": [
+          {
+            "name": "icon_审计管理",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_审计管理.png"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "BG/fill",
+        "rect": {
+          "x": 0,
+          "y": 179,
+          "w": 240,
+          "h": 56
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级",
+        "css": [
+          "background: #18213E;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "用户管理",
+        "rect": {
+          "x": 66,
+          "y": 195,
+          "w": 120,
+          "h": 22
+        },
+        "styleName": "14px/🌜darken/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #AFBBE3;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_用户管理",
+        "rect": {
+          "x": 33.9,
+          "y": 198.9,
+          "w": 16.1,
+          "h": 16.1
+        },
+        "assets": [
+          {
+            "name": "icon_用户管理",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_用户管理.png"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/line/24/菜单收起",
+        "rect": {
+          "x": 230,
+          "y": 21,
+          "w": 20,
+          "h": 20
+        },
+        "assets": [
+          {
+            "name": "icon/line/24/菜单收起",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\菜单收起.svg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "当前层级",
+        "rect": {
+          "x": 435,
+          "y": 20,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "上级",
+        "rect": {
+          "x": 276,
+          "y": 20,
+          "w": 149,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/3次要 secondary",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #898C8F;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 256,
+          "y": 80,
+          "w": 1648,
+          "h": 108
+        },
+        "styleName": "fill 填充/2辅助 auxiliary 辅助色/9白色",
+        "css": [
+          "background: #FFFFFF;",
+          "box-shadow: 0 0 17px 0 rgba(0,0,0,0.08);",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "哨兵",
+        "rect": {
+          "x": 394,
+          "y": 100,
+          "w": 48,
+          "h": 32
+        },
+        "styleName": "24px/☀️default/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei-Bold;",
+          "font-size: 24px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 32px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "上线",
+        "rect": {
+          "x": 510,
+          "y": 105,
+          "w": 28,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "SN：2409000100010004",
+        "rect": {
+          "x": 394,
+          "y": 144,
+          "w": 189,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 16px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_编辑",
+        "rect": {
+          "x": 450,
+          "y": 107,
+          "w": 20,
+          "h": 20
+        },
+        "assets": [
+          {
+            "name": "icon_编辑",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_编辑.png"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "哨兵",
+        "rect": {
+          "x": 298,
+          "y": 98,
+          "w": 72,
+          "h": 72
+        },
+        "css": [
+          "opacity: 0;"
+        ],
+        "assets": [
+          {
+            "name": "哨兵",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\哨兵.png"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "9KHz~10GHz",
+        "rect": {
+          "x": 1690,
+          "y": 122,
+          "w": 164,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 30px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 256,
+          "y": 204,
+          "w": 1648,
+          "h": 1056
+        },
+        "styleName": "fill 填充/2辅助 auxiliary 辅助色/9白色",
+        "css": [
+          "background: #FFFFFF;",
+          "box-shadow: 0 0 17px 0 rgba(0,0,0,0.08);",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 268,
+          "w": 1616,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "持续运行时长",
+        "rect": {
+          "x": 410,
+          "y": 309,
+          "w": 108,
+          "h": 26
+        },
+        "styleName": "18px/☀️default/2强调 emphasize",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 18px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 26px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "时长",
+        "rect": {
+          "x": 314,
+          "y": 286,
+          "w": 72,
+          "h": 72
+        },
+        "css": [
+          "opacity: 0;"
+        ],
+        "assets": [
+          {
+            "name": "时长",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\时长.png"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "2天3小时15分钟",
+        "rect": {
+          "x": 1652,
+          "y": 303,
+          "w": 196,
+          "h": 36
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "2",
+        "rect": {
+          "x": 1652,
+          "y": 303,
+          "w": 14,
+          "h": 36
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "天",
+        "rect": {
+          "x": 1666,
+          "y": 303,
+          "w": 29,
+          "h": 36
+        },
+        "css": [
+          "font-family: .PingFangSC-Regular;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "3",
+        "rect": {
+          "x": 1695,
+          "y": 303,
+          "w": 14,
+          "h": 36
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "小时",
+        "rect": {
+          "x": 1709,
+          "y": 303,
+          "w": 57,
+          "h": 36
+        },
+        "css": [
+          "font-family: .PingFangSC-Regular;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "15",
+        "rect": {
+          "x": 1766,
+          "y": 303,
+          "w": 27,
+          "h": 36
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "分钟",
+        "rect": {
+          "x": 1793,
+          "y": 303,
+          "w": 57,
+          "h": 36
+        },
+        "css": [
+          "font-family: .PingFangSC-Regular;",
+          "font-size: 28px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 36px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 392,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "CPU使用率",
+        "rect": {
+          "x": 296,
+          "y": 435,
+          "w": 71,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 391,
+          "y": 442,
+          "w": 410,
+          "h": 8
+        },
+        "styleName": "fill 填充/2辅助 auxiliary 辅助色/3表头",
+        "css": [
+          "background: #F0F4F8;",
+          "border-radius: 4px;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 391,
+          "y": 442,
+          "w": 203.9,
+          "h": 8
+        },
+        "styleName": "fill 填充/1基础色/1安全蓝/安全蓝1-常规",
+        "css": [
+          "background-image: linear-gradient(270deg, #53B1FF 0%, #2979FF 100%);",
+          "border-radius: 4px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "50%",
+        "rect": {
+          "x": 1012,
+          "y": 434,
+          "w": 36,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 640,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "本地存储",
+        "rect": {
+          "x": 296,
+          "y": 683,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 391,
+          "y": 690,
+          "w": 410,
+          "h": 8
+        },
+        "styleName": "fill 填充/2辅助 auxiliary 辅助色/3表头",
+        "css": [
+          "background: #F0F4F8;",
+          "border-radius: 4px;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 391,
+          "y": 690,
+          "w": 203.9,
+          "h": 8
+        },
+        "styleName": "fill 填充/1基础色/1安全蓝/安全蓝1-常规",
+        "css": [
+          "background-image: linear-gradient(270deg, #53B1FF 0%, #2979FF 100%);",
+          "border-radius: 4px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "457GB可用，共512GB",
+        "rect": {
+          "x": 824,
+          "y": 682,
+          "w": 225,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "457GB",
+        "rect": {
+          "x": 824,
+          "y": 682,
+          "w": 64,
+          "h": 24
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "可用，",
+        "rect": {
+          "x": 888,
+          "y": 682,
+          "w": 67,
+          "h": 24
+        },
+        "css": [
+          "font-family: .PingFangSC-Regular;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "共",
+        "rect": {
+          "x": 955,
+          "y": 682,
+          "w": 24,
+          "h": 24
+        },
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "512GB",
+        "rect": {
+          "x": 979,
+          "y": 682,
+          "w": 64,
+          "h": 24
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 640,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "AD状态",
+        "rect": {
+          "x": 1112,
+          "y": 683,
+          "w": 49,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "正常",
+        "rect": {
+          "x": 1816,
+          "y": 682,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1BB380;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 764,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "射频状态",
+        "rect": {
+          "x": 296,
+          "y": 807,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "正常",
+        "rect": {
+          "x": 1000,
+          "y": 806,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1BB380;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 888,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "WiFi状态",
+        "rect": {
+          "x": 296,
+          "y": 931,
+          "w": 58,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "正常",
+        "rect": {
+          "x": 1000,
+          "y": 930,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1BB380;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 1012,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "北斗状态",
+        "rect": {
+          "x": 296,
+          "y": 1055,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "在位",
+        "rect": {
+          "x": 1000,
+          "y": 1053,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1BB380;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 1136,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "北斗位置",
+        "rect": {
+          "x": 296,
+          "y": 1179,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "纬度(52.291950) 经度(0.1",
+        "rect": {
+          "x": 726,
+          "y": 1177,
+          "w": 329,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: .AppleSystemUIFont;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "纬度",
+        "rect": {
+          "x": 726,
+          "y": 1177,
+          "w": 49,
+          "h": 24
+        },
+        "css": [
+          "font-family: .PingFangSC-Regular;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "(52.291950)",
+        "rect": {
+          "x": 775,
+          "y": 1177,
+          "w": 123,
+          "h": 24
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "经度(",
+        "rect": {
+          "x": 898,
+          "y": 1177,
+          "w": 60,
+          "h": 24
+        },
+        "css": [
+          "font-family: .PingFangSC-Regular;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "0.171626",
+        "rect": {
+          "x": 958,
+          "y": 1177,
+          "w": 87,
+          "h": 24
+        },
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": ")",
+        "rect": {
+          "x": 1045,
+          "y": 1177,
+          "w": 9,
+          "h": 24
+        },
+        "css": [
+          "font-family: .AppleSystemUIFont;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 888,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "FPGA状态",
+        "rect": {
+          "x": 1112,
+          "y": 931,
+          "w": 65,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "正常",
+        "rect": {
+          "x": 1816,
+          "y": 930,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1BB380;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 272,
+          "y": 516,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "CPU温度",
+        "rect": {
+          "x": 296,
+          "y": 559,
+          "w": 57,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "58℃",
+        "rect": {
+          "x": 411,
+          "y": 559,
+          "w": 31,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "正常",
+        "rect": {
+          "x": 1000,
+          "y": 558,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #1BB380;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 516,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "工作温度",
+        "rect": {
+          "x": 1112,
+          "y": 559,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "65℃",
+        "rect": {
+          "x": 1226,
+          "y": 559,
+          "w": 31,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "异常",
+        "rect": {
+          "x": 1816,
+          "y": 558,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #E5433E;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 764,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "蓝牙状态",
+        "rect": {
+          "x": 1112,
+          "y": 807,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "异常",
+        "rect": {
+          "x": 1816,
+          "y": 806,
+          "w": 48,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: PingFangSC-Semibold;",
+          "font-size: 24px;",
+          "color: #E5433E;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 600;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 392,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "内存使用率",
+        "rect": {
+          "x": 1112,
+          "y": 435,
+          "w": 70,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 1206,
+          "y": 442,
+          "w": 410,
+          "h": 8
+        },
+        "styleName": "fill 填充/2辅助 auxiliary 辅助色/3表头",
+        "css": [
+          "background: #F0F4F8;",
+          "border-radius: 4px;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 1206,
+          "y": 442,
+          "w": 203.9,
+          "h": 8
+        },
+        "styleName": "fill 填充/1基础色/1安全蓝/安全蓝1-常规",
+        "css": [
+          "background-image: linear-gradient(270deg, #53B1FF 0%, #2979FF 100%);",
+          "border-radius: 4px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "50%",
+        "rect": {
+          "x": 1828,
+          "y": 434,
+          "w": 36,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 1012,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "北斗时间",
+        "rect": {
+          "x": 1112,
+          "y": 1055,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "2025-01-21 14:30:24",
+        "rect": {
+          "x": 1665,
+          "y": 1054,
+          "w": 199,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 1088,
+          "y": 1136,
+          "w": 800,
+          "h": 108
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;",
+          "border-radius: 6px;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "系统时间",
+        "rect": {
+          "x": 1112,
+          "y": 1179,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/1标题-2",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #303032;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "2025-01-21 14:30:24",
+        "rect": {
+          "x": 1665,
+          "y": 1178,
+          "w": 199,
+          "h": 24
+        },
+        "styleName": "16px/☀️default/1标题-2",
+        "css": [
+          "font-family: DINAlternate-Bold;",
+          "font-size: 24px;",
+          "color: #1F1F21;",
+          "letter-spacing: 0;",
+          "line-height: 24px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "蒙版备份",
+        "rect": {
+          "x": 256,
+          "y": 251,
+          "w": 1648,
+          "h": 1
+        },
+        "styleName": "outline/☀️default/1正常边框",
+        "css": [
+          "border: 1px solid #C8CBCD;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "rect": {
+          "x": 392,
+          "y": 220,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_网络配置",
+        "rect": {
+          "x": 372,
+          "y": 224,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_网络配置",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\icon_网络配置.svg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "rect": {
+          "x": 492,
+          "y": 220,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_数据存储",
+        "rect": {
+          "x": 472,
+          "y": 224,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_数据存储",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\icon_数据存储.svg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "rect": {
+          "x": 592,
+          "y": 220,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_设备升级",
+        "rect": {
+          "x": 572,
+          "y": 224,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_设备升级",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\icon_设备升级.svg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "rect": {
+          "x": 692,
+          "y": 220,
+          "w": 71,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_重启重置",
+        "rect": {
+          "x": 672,
+          "y": 224,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_重启重置",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\icon_重启重置.svg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "rect": {
+          "x": 807,
+          "y": 220,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/2正文 body",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #505255;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_证书升级",
+        "rect": {
+          "x": 787,
+          "y": 224,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_证书升级",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\icon_证书升级.svg"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "rect": {
+          "x": 292,
+          "y": 220,
+          "w": 56,
+          "h": 22
+        },
+        "styleName": "14px/☀️default/9链接 link 常规",
+        "css": [
+          "font-family: MicrosoftYaHei-Bold;",
+          "font-size: 14px;",
+          "color: #2979FF;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_设备状态_选中",
+        "rect": {
+          "x": 272,
+          "y": 224,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_设备状态_选中",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\icon_设备状态_选中.svg"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "Dividers",
+        "rect": {
+          "x": 272,
+          "y": 250,
+          "w": 76,
+          "h": 2
+        },
+        "styleName": "fill 填充/1基础色/1安全蓝/安全蓝1-常规",
+        "css": [
+          "background: #2979FF;"
+        ]
+      }
+    ]
+  }
+}

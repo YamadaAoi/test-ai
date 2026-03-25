@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "description": "This is sanitized structural data from a Sketch design file.\n              All frame properties (x, y, w, h) are relative to the parent container.\n              Extract the images used to the specified location, please infer the image location reasonably."
+  },
+  "artboard": {
+    "pageName": "新",
+    "pageObjectID": "9022EDD6-E3C2-4385-BC50-3FC0E4703F2A",
+    "name": "设备管理-设备状态",
+    "objectID": "B78C7E99-C4BF-40E8-8E12-072E32F3B866",
+    "width": 1920,
+    "height": 1276,
+    "layers": [
+      {
+        "type": "slice",
+        "name": "icon/line/24/菜单收起",
+        "rect": {
+          "x": 230,
+          "y": 22,
+          "w": 20,
+          "h": 20
+        },
+        "assets": [
+          {
+            "name": "icon/line/24/菜单收起",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\菜单收起.svg"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "Rectangle 2 Copy备份 2",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 240,
+          "h": 1276
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级",
+        "css": [
+          "background: #18213E;"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "矩形",
+        "rect": {
+          "x": 0,
+          "y": 1015.63,
+          "w": 240,
+          "h": 260.37
+        },
+        "css": [
+          "background-image: linear-gradient(222deg, rgba(184,211,255,0.05) 21%, rgba(236,236,236,0.00) 89%);"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "编组 16",
+        "rect": {
+          "x": 15,
+          "y": 26.5,
+          "w": 190,
+          "h": 55
+        },
+        "assets": [
+          {
+            "name": "编组 16",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\编组 16.png"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "BG/fill",
+        "rect": {
+          "x": 0,
+          "y": 123,
+          "w": 240,
+          "h": 56
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级-悬浮",
+        "css": [
+          "background-image: linear-gradient(90deg, rgba(255,255,255,0.20) 2%, rgba(255,255,255,0.00) 100%);"
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "color_block",
+        "rect": {
+          "x": 0,
+          "y": 123,
+          "w": 6,
+          "h": 56
+        },
+        "styleName": "fill 填充/1基础色/1安全蓝/安全蓝1-常规",
+        "css": [
+          "background: #2979FF;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "设备管理",
+        "rect": {
+          "x": 66,
+          "y": 139,
+          "w": 120,
+          "h": 22
+        },
+        "styleName": "14px/🌜darken/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei-Bold;",
+          "font-size: 14px;",
+          "color: #FFFFFF;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 700;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_设备管理_选中",
+        "rect": {
+          "x": 34,
+          "y": 143,
+          "w": 16,
+          "h": 16
+        },
+        "assets": [
+          {
+            "name": "icon_设备管理_选中",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_设备管理_选中.png"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "BG/fill",
+        "rect": {
+          "x": 0,
+          "y": 235,
+          "w": 240,
+          "h": 56
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级",
+        "css": [
+          "background: #18213E;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "审计管理",
+        "rect": {
+          "x": 66,
+          "y": 251,
+          "w": 120,
+          "h": 22
+        },
+        "styleName": "14px/🌜darken/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #AFBBE3;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_审计管理",
+        "rect": {
+          "x": 33.9,
+          "y": 254.9,
+          "w": 16.1,
+          "h": 16.1
+        },
+        "assets": [
+          {
+            "name": "icon_审计管理",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_审计管理.png"
+          }
+        ]
+      },
+      {
+        "type": "shape",
+        "name": "BG/fill",
+        "rect": {
+          "x": 0,
+          "y": 179,
+          "w": 240,
+          "h": 56
+        },
+        "styleName": "fill 填充/3导航色/1nav-一级",
+        "css": [
+          "background: #18213E;"
+        ]
+      },
+      {
+        "type": "text",
+        "name": "用户管理",
+        "rect": {
+          "x": 66,
+          "y": 195,
+          "w": 120,
+          "h": 22
+        },
+        "styleName": "14px/🌜darken/1标题 title",
+        "css": [
+          "font-family: MicrosoftYaHei;",
+          "font-size: 14px;",
+          "color: #AFBBE3;",
+          "letter-spacing: 0;",
+          "line-height: 22px;",
+          "font-weight: 400;"
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon_用户管理",
+        "rect": {
+          "x": 33.9,
+          "y": 198.9,
+          "w": 16.1,
+          "h": 16.1
+        },
+        "assets": [
+          {
+            "name": "icon_用户管理",
+            "format": "png",
+            "path": "src\\assets\\components\\navBar\\icon_用户管理.png"
+          }
+        ]
+      },
+      {
+        "type": "slice",
+        "name": "icon/line/24/菜单收起",
+        "rect": {
+          "x": 230,
+          "y": 21,
+          "w": 20,
+          "h": 20
+        },
+        "assets": [
+          {
+            "name": "icon/line/24/菜单收起",
+            "format": "svg",
+            "path": "src\\assets\\components\\navBar\\菜单收起.svg"
+          }
+        ]
+      }
+    ]
+  }
+}
