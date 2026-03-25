@@ -62,7 +62,7 @@ async function handleLogin() {
     })
     if (success) {
       ElMessage.success('登录成功')
-      router.push('/')
+      router.push('/portal')
     }
   } catch (error) {
     ElMessage.error(error instanceof Error ? error.message : '登录失败')

@@ -1,6 +1,5 @@
 /**
  * 路由配置
- * 所有页面组件需要按需导入！！！例如：component: () => import('../views/login/LoginPage.vue')
  */
 import { createRouter, createWebHistory } from 'vue-router'
 
