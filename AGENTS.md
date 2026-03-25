@@ -43,9 +43,9 @@ src/
 ├── views/         # Page-level components (lazy loaded)
 ├── router/        # Vue Router config
 ├── stores/        # Pinia stores (setup syntax)
-├── utils/         # Utilities (request, auth, etc.)
+├── utils/         # Utilities (request, auth)
 ├── __tests__/     # Unit tests (*.spec.ts)
-├── assets/        # Static assets (images, fonts)
+├── assets/        # Static assets
 ├── App.vue        # Root component
 └── main.ts        # Entry point
 mock/              # Mock API data (vite-plugin-mock)
@@ -53,18 +53,18 @@ mock/              # Mock API data (vite-plugin-mock)
 
 ## Code Style
 
-### Formatting (Prettier)
+### Formatting (Prettier + EditorConfig)
 
-No semicolons, single quotes, no trailing commas, 2-space indent, 80 char line width.
+No semicolons, single quotes, no trailing commas, 2-space indent, 80 char line width, LF line endings. Arrow functions omit parens when single param.
 
 ```typescript
-// ✅ Correct
+// Correct
 const name = 'test'
-import request from '@/utils/request'
+const doubled = items.map(x => x * 2)
 
-// ❌ Wrong
-const name = "test";
-import request from "@/utils/request",
+// Wrong
+const name = 'test'
+const doubled = items.map(x => x * 2)
 ```
 
 ### Imports
@@ -79,7 +79,7 @@ import request from '@/utils/request'
 import { useUserStore } from '@/stores/user'
 ```
 
-**Auto-imports**: Vue APIs (`ref`, `computed`), Pinia, and Element Plus components are auto-imported via `unplugin-auto-import`. You can omit these imports in components.
+**Auto-imports**: Element Plus components are auto-imported via `unplugin-auto-import`. Omit these imports in `.vue` files. Explicit imports required in `.ts` files.
 
 ### Naming
 
@@ -97,13 +97,13 @@ import { useUserStore } from '@/stores/user'
 ### TypeScript
 
 - Use `interface` for object shapes, `type` for unions/aliases
-- Export interfaces alongside API functions
+- Export interfaces alongside API functions in the same file
 - Never use `any`; use `unknown` when uncertain
-- Types auto-include `element-plus/global`
+- Types auto-include `element-plus/global` (no manual import needed)
 
 ### Vue Components
 
-Always use `<script setup lang="ts">`:
+Always use `<script setup lang="ts">`, `<style scoped>`:
 
 ```vue
 <template>
@@ -156,15 +156,13 @@ export async function login(params: LoginParams): Promise<string> {
 Use setup store syntax (not options):
 
 ```typescript
-import { defineStore } from 'pinia'
-
-export const useUserStore = defineStore('user', () => {
-  const token = ref('')
-  const isLoggedIn = computed(() => !!token.value)
-  function setToken(t: string) {
-    token.value = t
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const doubleCount = computed(() => count.value * 2)
+  function increment() {
+    count.value++
   }
-  return { token, isLoggedIn, setToken }
+  return { count, doubleCount, increment }
 })
 ```
 
@@ -173,17 +171,16 @@ export const useUserStore = defineStore('user', () => {
 - Environment: `jsdom` (configured in `vitest.config.ts`)
 - Tests: `src/__tests__/*.spec.ts`
 - Use `@vue/test-utils` for component tests
-- Run single test: `npm run test:unit -- --run -t "test name"`
 
-### CSS/SCSS
+### Icons
 
-- Use `<style scoped>` always
-- SCSS syntax available (`sass-embedded` installed)
-- Element Plus icons: `import { User } from '@element-plus/icons-vue'`
+```typescript
+import { User } from '@element-plus/icons-vue'
+```
 
 ## Mock Server
 
-`vite-plugin-mock` is enabled in dev. Place mock files in `mock/` directory at project root. Auto-enabled during `npm run dev`.
+`vite-plugin-mock` is enabled in dev. Place mock files in `mock/` directory. Auto-enabled during `npm run dev`.
 
 ## Environment Variables
 
