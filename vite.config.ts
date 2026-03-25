@@ -14,6 +14,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     vueDevTools(),
+    // 仅自动导入 ElementPlus 相关函数
     AutoImport({
       resolvers: [ElementPlusResolver()]
     }),
