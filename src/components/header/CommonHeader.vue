@@ -1,65 +1,64 @@
 <template>
-  <header class="common-header">
+  <div class="common-header">
     <div class="breadcrumb">
       <span
+        class="breadcrumb-item"
         v-for="(item, index) in breadcrumbs"
         :key="index"
-        class="breadcrumb-item"
       >
-        <span class="breadcrumb-separator" v-if="index > 0">/</span>
+        <span v-if="index > 0" class="separator">/</span>
         <span
-          :class="{ 'breadcrumb-current': index === breadcrumbs.length - 1 }"
+          class="breadcrumb-text"
+          :class="{ active: index === breadcrumbs.length - 1 }"
         >
-          {{ item.label }}
+          {{ item }}
         </span>
       </span>
     </div>
     <div class="header-right">
-      <div class="header-icon clear-mode"></div>
-      <div class="header-icon message">
-        <span class="badge">3</span>
-      </div>
-      <div class="header-icon skin"></div>
-      <div class="header-icon menu"></div>
+      <div class="icon-btn clear-mode" title="清晰模式"></div>
+      <div class="icon-btn message" title="消息"></div>
+      <div class="icon-btn skin" title="皮肤"></div>
+      <div class="icon-btn menu" title="菜单"></div>
       <div class="user-info">
         <div class="avatar"></div>
         <span class="username">{{ username }}</span>
-        <div class="arrow-down"></div>
+        <div class="arrow"></div>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 defineProps<{
-  username?: string
+  username: string
 }>()
 
 const route = useRoute()
+const breadcrumbs = ref<string[]>([])
 
-interface BreadcrumbItem {
-  label: string
-  path: string
+const updateBreadcrumbs = () => {
+  const path = route.path
+  const crumbs: string[] = ['主页']
+
+  if (path.startsWith('/portal/')) {
+    const segment = path.split('/')[2]
+    if (segment && route.meta?.label) {
+      crumbs.push(route.meta.label as string)
+    }
+  }
+
+  breadcrumbs.value = crumbs
 }
 
-const breadcrumbs = computed<BreadcrumbItem[]>(() => {
-  const matched = route.matched
-  const result: BreadcrumbItem[] = []
-
-  matched.forEach(record => {
-    if (record.meta?.label) {
-      result.push({
-        label: record.meta.label as string,
-        path: record.path
-      })
-    }
-  })
-
-  return result
-})
+watch(
+  () => route.path,
+  () => updateBreadcrumbs(),
+  { immediate: true }
+)
 </script>
 
 <style scoped lang="scss">
@@ -70,129 +69,105 @@ const breadcrumbs = computed<BreadcrumbItem[]>(() => {
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .breadcrumb {
   display: flex;
   align-items: center;
-  gap: 8px;
 
   .breadcrumb-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
 
-  .breadcrumb-separator {
-    color: #898c8f;
-    font-size: 14px;
-  }
+    .separator {
+      margin: 0 8px;
+      color: #898c8f;
+      font-size: 14px;
+    }
 
-  .breadcrumb-current {
-    color: #505255;
-  }
+    .breadcrumb-text {
+      font-family: MicrosoftYaHei;
+      font-size: 14px;
+      color: #898c8f;
+      letter-spacing: 0;
+      line-height: 22px;
+      font-weight: 400;
 
-  span {
-    font-family: MicrosoftYaHei, sans-serif;
-    font-size: 14px;
-    color: #898c8f;
-    letter-spacing: 0;
-    line-height: 22px;
+      &.active {
+        color: #505255;
+      }
+    }
   }
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 16px;
-}
+  gap: 12px;
 
-.header-icon {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.65;
-  transition: opacity 0.2s;
+  .icon-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
-  &:hover {
-    opacity: 1;
-  }
+    &.clear-mode {
+      background-image: url('@/assets/components/header/清晰模式.svg');
+    }
 
-  &.clear-mode {
-    background-image: url('@/assets/components/header/清晰模式.svg');
-  }
+    &.message {
+      background-image: url('@/assets/components/header/消息-1.svg');
+    }
 
-  &.message {
-    position: relative;
+    &.skin {
+      background-image: url('@/assets/components/header/皮肤-2.svg');
+    }
 
-    background-image: url('@/assets/components/header/消息-1.svg');
+    &.menu {
+      background-image: url('@/assets/components/header/菜单-2.svg');
+    }
 
-    .badge {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      min-width: 16px;
-      height: 16px;
-      background: #f56c6c;
-      border-radius: 8px;
-      color: #ffffff;
-      font-size: 12px;
-      line-height: 16px;
-      text-align: center;
-      padding: 0 4px;
+    &:hover {
+      opacity: 0.7;
     }
   }
 
-  &.skin {
-    background-image: url('@/assets/components/header/皮肤-2.svg');
-  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 12px;
+    cursor: pointer;
 
-  &.menu {
-    background-image: url('@/assets/components/header/菜单-2.svg');
-  }
-}
+    .avatar {
+      width: 26px;
+      height: 26px;
+      background-image: url('@/assets/components/header/头像.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s;
+    .username {
+      font-family: MicrosoftYaHei-Bold;
+      font-size: 12px;
+      color: #898c8f;
+      letter-spacing: 0;
+      line-height: 20px;
+      font-weight: 700;
+    }
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
-  }
-
-  .avatar {
-    width: 26px;
-    height: 26px;
-    background-image: url('@/assets/components/header/头像.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  .username {
-    font-family: MicrosoftYaHei-Bold, sans-serif;
-    font-size: 12px;
-    color: #898c8f;
-    letter-spacing: 0;
-    line-height: 20px;
-    font-weight: 700;
-  }
-
-  .arrow-down {
-    width: 10px;
-    height: 10px;
-    background-image: url('@/assets/components/header/默认-下.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    .arrow {
+      width: 10px;
+      height: 10px;
+      background-image: url('@/assets/components/header/默认-下.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 }
 </style>
