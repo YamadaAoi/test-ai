@@ -1,0 +1,183 @@
+{
+  "pageName": "新",
+  "pageObjectID": "9022EDD6-E3C2-4385-BC50-3FC0E4703F2A",
+  "name": "设备管理-设备状态",
+  "objectID": "B78C7E99-C4BF-40E8-8E12-072E32F3B866",
+  "width": 1920,
+  "height": 1276,
+  "layers": [
+    {
+      "type": "shape",
+      "name": "Rectangle 2 Copy备份",
+      "rect": {
+        "x": 240,
+        "y": 0,
+        "w": 1680,
+        "h": 64
+      },
+      "styleName": "fill 填充/2辅助 auxiliary 辅助色/9白色",
+      "css": [
+        "background: #FFFFFF;"
+      ]
+    },
+    {
+      "type": "text",
+      "name": "超级管理员备份",
+      "rect": {
+        "x": 1812,
+        "y": 22,
+        "w": 60,
+        "h": 20
+      },
+      "styleName": "12px/☀️default/3次要 secondary",
+      "css": [
+        "font-family: MicrosoftYaHei-Bold;",
+        "font-size: 12px;",
+        "color: #898C8F;",
+        "letter-spacing: 0;",
+        "line-height: 20px;",
+        "font-weight: 700;"
+      ]
+    },
+    {
+      "type": "slice",
+      "name": "icon/fill/24/箭头/默认-下",
+      "rect": {
+        "x": 1886,
+        "y": 27,
+        "w": 10,
+        "h": 10
+      },
+      "assets": [
+        {
+          "name": "icon/fill/24/箭头/默认-下",
+          "format": "svg",
+          "path": "D:\\codes\\github\\test-ai\\src\\assets\\components\\header\\默认-下.svg"
+        }
+      ]
+    },
+    {
+      "type": "slice",
+      "name": "icon/fill/24/头像",
+      "rect": {
+        "x": 1782,
+        "y": 19,
+        "w": 26,
+        "h": 26
+      },
+      "assets": [
+        {
+          "name": "icon/fill/24/头像",
+          "format": "svg",
+          "path": "D:\\codes\\github\\test-ai\\src\\assets\\components\\header\\头像.svg"
+        }
+      ]
+    },
+    {
+      "type": "slice",
+      "name": "icon/fill/24/消息-1",
+      "rect": {
+        "x": 1638,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      },
+      "assets": [
+        {
+          "name": "icon/fill/24/消息-1",
+          "format": "svg",
+          "path": "D:\\codes\\github\\test-ai\\src\\assets\\components\\header\\消息-1.svg"
+        }
+      ]
+    },
+    {
+      "type": "slice",
+      "name": "icon/fill/24/消息-1备份",
+      "rect": {
+        "x": 1590,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      },
+      "assets": [
+        {
+          "name": "icon/fill/24/清晰模式",
+          "format": "svg",
+          "path": "D:\\codes\\github\\test-ai\\src\\assets\\components\\header\\清晰模式.svg"
+        }
+      ]
+    },
+    {
+      "type": "slice",
+      "name": "icon/fill/24/皮肤-2",
+      "rect": {
+        "x": 1686,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      },
+      "assets": [
+        {
+          "name": "icon/fill/24/皮肤-2",
+          "format": "svg",
+          "path": "D:\\codes\\github\\test-ai\\src\\assets\\components\\header\\皮肤-2.svg"
+        }
+      ]
+    },
+    {
+      "type": "slice",
+      "name": "icon/line/24/菜单-2",
+      "rect": {
+        "x": 1734,
+        "y": 20,
+        "w": 24,
+        "h": 24
+      },
+      "assets": [
+        {
+          "name": "icon/line/24/菜单-2",
+          "format": "svg",
+          "path": "D:\\codes\\github\\test-ai\\src\\assets\\components\\header\\菜单-2.svg"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "当前层级",
+      "rect": {
+        "x": 435,
+        "y": 20,
+        "w": 56,
+        "h": 22
+      },
+      "styleName": "14px/☀️default/2正文 body",
+      "css": [
+        "font-family: MicrosoftYaHei;",
+        "font-size: 14px;",
+        "color: #505255;",
+        "letter-spacing: 0;",
+        "line-height: 22px;",
+        "font-weight: 400;"
+      ]
+    },
+    {
+      "type": "text",
+      "name": "上级",
+      "rect": {
+        "x": 276,
+        "y": 20,
+        "w": 149,
+        "h": 22
+      },
+      "styleName": "14px/☀️default/3次要 secondary",
+      "css": [
+        "font-family: MicrosoftYaHei;",
+        "font-size: 14px;",
+        "color: #898C8F;",
+        "letter-spacing: 0;",
+        "line-height: 22px;",
+        "font-weight: 400;"
+      ]
+    }
+  ]
+}

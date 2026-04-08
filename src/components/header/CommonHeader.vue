@@ -1,173 +1,140 @@
 <template>
   <div class="common-header">
-    <div class="breadcrumb">
-      <span
-        class="breadcrumb-item"
-        v-for="(item, index) in breadcrumbs"
-        :key="index"
-      >
-        <span v-if="index > 0" class="separator">/</span>
-        <span
-          class="breadcrumb-text"
-          :class="{ active: index === breadcrumbs.length - 1 }"
-        >
-          {{ item }}
-        </span>
-      </span>
+    <div class="header-left">
+      <span class="breadcrumb-parent">主页</span>
+      <span class="breadcrumb-separator">/</span>
+      <span class="breadcrumb-current">{{ currentPageName }}</span>
     </div>
     <div class="header-right">
-      <div class="icon-btn clear-mode" title="清晰模式"></div>
-      <div class="icon-btn message" title="消息"></div>
-      <div class="icon-btn skin" title="皮肤"></div>
-      <div class="icon-btn menu" title="菜单"></div>
+      <div class="header-icons">
+        <img
+          src="@/assets/components/header/消息-1.svg"
+          class="header-icon"
+          alt="消息"
+        />
+        <img
+          src="@/assets/components/header/皮肤-2.svg"
+          class="header-icon"
+          alt="皮肤"
+        />
+        <img
+          src="@/assets/components/header/菜单-2.svg"
+          class="header-icon"
+          alt="菜单"
+        />
+      </div>
       <div class="user-info">
-        <div class="avatar"></div>
-        <span class="username">{{ username }}</span>
-        <div class="arrow"></div>
+        <img
+          src="@/assets/components/header/头像.svg"
+          class="user-avatar"
+          alt="头像"
+        />
+        <span class="username">{{ userStore.username }}</span>
+        <img
+          src="@/assets/components/header/默认-下.svg"
+          class="dropdown-arrow"
+          alt="下拉"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-
-defineProps<{
-  username: string
-}>()
+import { useUserStore } from '@/stores/user'
 
 const route = useRoute()
-const breadcrumbs = ref<string[]>([])
+const userStore = useUserStore()
 
-const updateBreadcrumbs = () => {
-  const path = route.path
-  const crumbs: string[] = ['主页']
-
-  if (path.startsWith('/portal/')) {
-    const segment = path.split('/')[2]
-    if (segment && route.meta?.label) {
-      crumbs.push(route.meta.label as string)
-    }
-  }
-
-  breadcrumbs.value = crumbs
-}
-
-watch(
-  () => route.path,
-  () => updateBreadcrumbs(),
-  { immediate: true }
-)
+const currentPageName = computed(() => {
+  const meta = route.meta
+  return (meta.label as string) || ''
+})
 </script>
 
 <style scoped lang="scss">
 .common-header {
+  width: 100%;
   height: 64px;
   background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
 
-.breadcrumb {
+.header-left {
   display: flex;
   align-items: center;
+}
 
-  .breadcrumb-item {
-    display: flex;
-    align-items: center;
+.breadcrumb-parent {
+  font-family: 'MicrosoftYaHei', sans-serif;
+  font-size: 14px;
+  color: #898c8f;
+  letter-spacing: 0;
+  line-height: 22px;
+}
 
-    .separator {
-      margin: 0 8px;
-      color: #898c8f;
-      font-size: 14px;
-    }
+.breadcrumb-separator {
+  margin: 0 10px;
+  font-size: 14px;
+  color: #898c8f;
+}
 
-    .breadcrumb-text {
-      font-family: MicrosoftYaHei;
-      font-size: 14px;
-      color: #898c8f;
-      letter-spacing: 0;
-      line-height: 22px;
-      font-weight: 400;
-
-      &.active {
-        color: #505255;
-      }
-    }
-  }
+.breadcrumb-current {
+  font-family: 'MicrosoftYaHei', sans-serif;
+  font-size: 14px;
+  color: #505255;
+  letter-spacing: 0;
+  line-height: 22px;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+}
 
-  .icon-btn {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+.header-icons {
+  display: flex;
+  align-items: center;
+  margin-right: 36px;
+}
 
-    &.clear-mode {
-      background-image: url('@/assets/components/header/清晰模式.svg');
-    }
+.header-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 24px;
+  cursor: pointer;
+}
 
-    &.message {
-      background-image: url('@/assets/components/header/消息-1.svg');
-    }
+.user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-    &.skin {
-      background-image: url('@/assets/components/header/皮肤-2.svg');
-    }
+.user-avatar {
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+}
 
-    &.menu {
-      background-image: url('@/assets/components/header/菜单-2.svg');
-    }
+.username {
+  font-family: 'MicrosoftYaHei-Bold', sans-serif;
+  font-size: 12px;
+  color: #898c8f;
+  letter-spacing: 0;
+  line-height: 20px;
+  font-weight: 700;
+}
 
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-
-  .user-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: 12px;
-    cursor: pointer;
-
-    .avatar {
-      width: 26px;
-      height: 26px;
-      background-image: url('@/assets/components/header/头像.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-
-    .username {
-      font-family: MicrosoftYaHei-Bold;
-      font-size: 12px;
-      color: #898c8f;
-      letter-spacing: 0;
-      line-height: 20px;
-      font-weight: 700;
-    }
-
-    .arrow {
-      width: 10px;
-      height: 10px;
-      background-image: url('@/assets/components/header/默认-下.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-  }
+.dropdown-arrow {
+  width: 10px;
+  height: 10px;
+  margin-left: 8px;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="portal-page">
     <NavBar :routes="navRoutes" />
     <div class="main-content">
-      <CommonHeader :username="username" />
+      <CommonHeader />
       <div class="page-content">
         <router-view />
       </div>
@@ -23,8 +23,6 @@ interface NavRoute {
 }
 
 const router = useRouter()
-
-const username = '超级管理员'
 
 const navRoutes = computed<NavRoute[]>(() => {
   const routes = router.getRoutes()
