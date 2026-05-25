@@ -1,6 +1,6 @@
 # Agent Coding Guidelines
 
-Guidelines for AI agents working in this Vue 3 + TypeScript project.
+Compact reference for OpenCode agents in this Vue 3 + TypeScript SPA (`vue-3.18.2-demo`).
 
 ## Tech Stack
 
@@ -17,180 +17,89 @@ Guidelines for AI agents working in this Vue 3 + TypeScript project.
 ## Commands
 
 ```bash
-npm run dev          # Start dev server (auto-opens browser)
-npm run preview      # Preview production build
-npm run build        # Full build with type-check
-npm run build-only   # Vite build only (no type-check)
-npm run type-check   # vue-tsc type checking
-npm run lint         # ESLint with auto-fix
-npm run format       # Prettier format (src/ only)
+npm run dev          # dev server (--open auto-browser)
+npm run build        # type-check + Vite build in parallel (via npm-run-all2)
+npm run preview      # preview production build
+npm run type-check   # vue-tsc --build
+npm run lint         # eslint . --fix --cache
+npm run format       # prettier --write src/
 
-# Testing
-npm run test:unit                                  # Run all tests (watch mode)
-npm run test:unit -- --run                          # Run once, no watch
-npm run test:unit src/__tests__/App.spec.ts         # Single file
-npm run test:unit -- --run -t "test name"           # Single test by name
+npm run test:unit               # vitest watch
+npm run test:unit -- --run       # single run
+npm run test:unit src/__tests__/Foo.spec.ts
+npm run test:unit -- --run -t "test name"
 ```
 
-Run `npm run lint` and `npm run type-check` before finishing any task.
+**Verification order before finishing:** `npm run lint` then `npm run type-check`.
 
 ## Project Structure
 
 ```
 src/
-├── api/           # API request functions + interfaces
-├── components/    # Reusable Vue components
-├── views/         # Page-level components (lazy loaded)
-├── router/        # Vue Router config
-├── stores/        # Pinia stores (setup syntax)
-├── utils/         # Utilities (request, auth)
-├── __tests__/     # Unit tests (*.spec.ts)
-├── assets/        # Static assets
-├── App.vue        # Root component
-└── main.ts        # Entry point
-mock/              # Mock API data (vite-plugin-mock)
+├── api/{login,device}/  # API functions + types per feature
+├── components/{header,navBar}/
+├── views/{login,portal,device,user,audit}/  # Lazy-loaded pages
+├── router/
+├── stores/               # Pinia (setup syntax)
+├── utils/                # request (axios) + auth (localStorage)
+├── __tests__/
+├── assets/               # Static images, global SCSS
+├── App.vue
+└── main.ts
+mock/                     # vite-plugin-mock (dev only)
 ```
 
-## Code Style
+## Conventions
 
-### Formatting (Prettier + EditorConfig)
-
-No semicolons, single quotes, no trailing commas, 2-space indent, 80 char line width, LF line endings. Arrow functions omit parens when single param.
+### Formatting
+No semicolons, single quotes, no trailing commas, 2-space indent, 80-char width, omit arrow parens when single param. LF enforced by `.gitattributes`. Prettier + EditorConfig at root.
 
 ### Imports
-
-Use `@/` alias (maps to `src/`). Order: external → internal.
-
-```typescript
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
-import { ElMessage } from 'element-plus'
-import request from '@/utils/request'
-import { useUserStore } from '@/stores/user'
-```
-
-**Auto-imports**: Element Plus components are auto-imported via `unplugin-auto-import`. Omit these imports in `.vue` files. Explicit imports required in `.ts` files.
+- `@/` alias maps to `src/`. Order: external → internal.
+- Element Plus components auto-imported in `.vue` files only (unplugin-auto-import + unplugin-vue-components with `ElementPlusResolver`). Explicit imports required in `.ts`.
+- `auto-imports.d.ts` and `components.d.ts` are generated — do not hand-edit.
+- Element Plus icons globally registered in `main.ts` — use PascalCase in templates (e.g., `<Edit />`).
 
 ### Naming
-
 | Type       | Convention  | Example         |
 | ---------- | ----------- | --------------- |
 | Vue files  | PascalCase  | `LoginPage.vue` |
 | TS files   | camelCase   | `loginReq.ts`   |
 | Components | PascalCase  | `<LoginPage />` |
-| Functions  | camelCase   | `login()`       |
-| Variables  | camelCase   | `userName`      |
-| Constants  | UPPER_SNAKE | `API_BASE_URL`  |
-| Interfaces | PascalCase  | `LoginParams`   |
 | Stores     | useXxxStore | `useUserStore`  |
 
 ### TypeScript
-
-- Use `interface` for object shapes, `type` for unions/aliases
-- Export interfaces alongside API functions in the same file
-- Never use `any`; use `unknown` when uncertain
-- Types auto-include `element-plus/global` (no manual import needed)
+- `interface` for objects, `type` for unions/aliases
+- Avoid `any` (note: `src/utils/request.ts` has an eslint-disable for practical reasons)
+- `tsconfig.app.json` includes `"types": ["element-plus/global"]` — types auto-available
 
 ### Vue Components
+`<script setup lang="ts">` + `<style scoped lang="scss">`. Order: template → script → style.
 
-Always use `<script setup lang="ts">`, `<style scoped>`. Order: template → script → style.
+Explicitly import `ref`, `reactive`, etc. Do **not** import `defineProps` / `defineEmits` (compiler macros).
 
-```vue
-<template>
-  <div class="login-page">{{ msg }}</div>
-</template>
-
-<script setup lang="ts">
-defineProps<{ title: string }>()
-defineEmits<{ submit: [data: FormData] }>()
-const msg = ref('Hello') // auto-imported
-</script>
-
-<style scoped lang="scss">
-.login-page {
-  color: #fff;
-}
-</style>
+### Lazy-load all routes
+```ts
+component: () => import('@/views/login/LoginPage.vue')
 ```
 
-### Routing
+### API & State
+- Use `request` from `@/utils/request` (axios). Auto-injects `Authorization: Bearer <token>` header. `baseURL` from `VITE_API_BASE` (`/api`).
+- API response shape: `{ code: number, data?: T, msg?: string }`. Check `result.code === 0`.
+- Catch with `instanceof Error`, show user-facing errors via `ElMessage.error()`.
+- Pinia: setup store syntax (`defineStore('name', () => { ... })`).
+- Auth: localStorage via `@/utils/auth` (`saveAuth`, `getAuth`, `removeAuth`).
 
-Always lazy-load route components:
-
-```typescript
-{ path: '/login', component: () => import('@/views/login/LoginPage.vue') }
-```
-
-### API Requests
-
-Use `request` from `@/utils/request`. Define interfaces in same file. Use try-catch.
-
-```typescript
-export async function login(params: LoginParams): Promise<boolean> {
-  const result = await request<LoginResult>({
-    url: '/login',
-    method: 'post',
-    data: params
-  })
-  if (result.code === 0 && result.data) return true
-  throw new Error(result.msg || 'Login failed')
-}
-```
-
-### Error Handling
-
-Use `ElMessage` for user-facing errors. Catch with `instanceof Error`:
-
-```typescript
-try {
-  await login(params)
-} catch (error) {
-  ElMessage.error(error instanceof Error ? error.message : 'Operation failed')
-}
-```
-
-### Pinia Stores
-
-Use setup store syntax (not options):
-
-```typescript
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
-  return { count, doubleCount, increment }
-})
-```
-
-### SCSS
-
-Use `lang="scss"` with scoped styles. Nest pseudo-classes and child selectors:
-
-```scss
-.input-group {
-  border: 1px solid #5a5c5e;
-  &:focus-within {
-    border-color: #2979ff;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
-```
+### Mock Server
+vite-plugin-mock enabled in dev. Mock files in `mock/`. Mock `url` must match the full path including the `/api` prefix (e.g., `url: '/api/login'`).
 
 ### Testing
+Environment: jsdom (vitest.config.ts). Tests: `src/__tests__/*.spec.ts`. Use `@vue/test-utils`.
 
-- Environment: `jsdom` (configured in `vitest.config.ts`)
-- Tests: `src/__tests__/*.spec.ts`
-- Use `@vue/test-utils` for component tests
+## Additional Sources
+- `.claude/rules/` — per-subject rules (always loaded)
+- `.claude/skills/` — sketch-analyze, sketch-plan, pinia, vue skills
+- `opencode.json` — loads `docs/**/*.md` instructions (dir may be empty), webfetch allowed
+- `.vscode/extensions.json` — recommends Volar, Vitest Explorer, ESLint, EditorConfig, Prettier
 
-## Mock Server
-
-`vite-plugin-mock` is enabled in dev. Place mock files in `mock/` directory. Auto-enabled during `npm run dev`.
-
-## Environment Variables
-
-Prefix with `VITE_` to expose to client: `import.meta.env.VITE_API_BASE`
+No CI/CD, husky, or pre-commit hooks configured.
