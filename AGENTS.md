@@ -11,6 +11,7 @@ Compact reference for OpenCode agents in this Vue 3 + TypeScript SPA (`vue-3.18.
 | Element Plus | ^2.13.5                 |
 | Vite         | ^7.1.11                 |
 | TypeScript   | ~5.9.0                  |
+| ECharts      | ^6.0.0                  |
 | Vitest       | ^3.2.4                  |
 | Node         | ^20.19.0 \|\| >=22.12.0 |
 
@@ -37,8 +38,8 @@ npm run test:unit -- --run -t "test name"
 ```
 src/
 ├── api/{login,device}/  # API functions + types per feature
-├── components/{header,navBar}/
-├── views/{login,portal,device,user,audit}/  # Lazy-loaded pages
+├── components/           # (empty — add shared components here)
+├── views/                # (empty — add lazy-loaded page dirs here)
 ├── router/
 ├── stores/               # Pinia (setup syntax)
 ├── utils/                # request (axios) + auth (localStorage)
@@ -48,6 +49,8 @@ src/
 └── main.ts
 mock/                     # vite-plugin-mock (dev only)
 ```
+
+**Convention** (ref `.claude/rules/instructions.md`): View dirs use kebab-case with `index.vue` entry + `modules/` subfolder. API dirs should separate `types.ts` + `index.ts` (existing code uses single `XxxReq.ts` files).
 
 ## Conventions
 
@@ -74,7 +77,7 @@ No semicolons, single quotes, no trailing commas, 2-space indent, 80-char width,
 - `tsconfig.app.json` includes `"types": ["element-plus/global"]` — types auto-available
 
 ### Vue Components
-`<script setup lang="ts">` + `<style scoped lang="scss">`. Order: template → script → style.
+`<script setup lang="ts">` + `<style scoped lang="scss">`. Order: script → template → style.
 
 Explicitly import `ref`, `reactive`, etc. Do **not** import `defineProps` / `defineEmits` (compiler macros).
 
@@ -97,9 +100,10 @@ vite-plugin-mock enabled in dev. Mock files in `mock/`. Mock `url` must match th
 Environment: jsdom (vitest.config.ts). Tests: `src/__tests__/*.spec.ts`. Use `@vue/test-utils`.
 
 ## Additional Sources
-- `.claude/rules/` — per-subject rules (always loaded)
-- `.claude/skills/` — sketch-analyze, sketch-plan, pinia, vue skills
+- `.claude/rules/instructions.md` — "Project Constitution" (always loaded, read first)
+- `.claude/rules/` — per-subject rules (always loaded by trigger)
+- `.claude/skills/` — sketch-init/split/draw, pinia, vue skills
 - `opencode.json` — loads `docs/**/*.md` instructions (dir may be empty), webfetch allowed
 - `.vscode/extensions.json` — recommends Volar, Vitest Explorer, ESLint, EditorConfig, Prettier
 
-No CI/CD, husky, or pre-commit hooks configured.
+No CI/CD, husky, or pre-commit hooks.
