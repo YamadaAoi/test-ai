@@ -13,38 +13,5 @@
   },
   "permission": {
     "webfetch": "allow"
-  },
-  "provider": {
-    "bailian-payg": {
-      "npm": "@ai-sdk/anthropic",
-      "name": "Alibaba Cloud Model Studio",
-      "options": {
-        "baseURL": "https://dashscope.aliyuncs.com/apps/anthropic/v1",
-        "apiKey": "sk-afa4598e97df4f4c8527538eb43c7c76"
-      },
-      "models": {
-        "qwen3.7-max": {
-          "name": "Qwen3.7 Max",
-          "options": {
-            "thinking": {
-              "type": "enabled",
-              "budgetTokens": 8192
-            }
-          }
-        },
-        "qwen3.6-plus": {
-          "name": "Qwen3.6 Plus",
-          "options": {
-            "thinking": {
-              "type": "enabled",
-              "budgetTokens": 8192
-            }
-          }
-        },
-        "deepseek-v3.2": {
-          "name": "DeepSeek V3.2"
-        }
-      }
-    }
   }
 }
