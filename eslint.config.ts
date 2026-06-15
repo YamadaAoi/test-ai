@@ -27,5 +27,10 @@ export default defineConfigWithVueTs(
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*']
   },
-  skipFormatting
+  skipFormatting,
+  {
+    rules: {
+      'vue/multi-word-component-names': 'off'
+    }
+  }
 )
