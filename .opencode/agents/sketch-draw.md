@@ -1,4 +1,5 @@
 ---
+name: sketch-draw
 description: 提取画板指定区域设计结构，生成前端组件功能代码
 mode: subagent
 temperature: 0.1

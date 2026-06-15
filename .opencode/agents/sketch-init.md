@@ -1,4 +1,5 @@
 ---
+name: sketch-init
 description: 阅读项目代码，总结技术栈/代码风格/项目结构，生成 proj-init.md
 mode: subagent
 temperature: 0.1

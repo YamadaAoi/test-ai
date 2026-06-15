@@ -1,10 +1,8 @@
-﻿---
+---
 name: sketch-workflow
 description: 选择画板后全自动 Sketch 代码生成工作流
 metadata:
-  author: zhouyinkui
-  version: '2026.06.04'
-  source: scripts located at https://github.com/YamadaAoi/mcp-sketch
+  version: 1.2.4
 ---
 
 此技能是 `Sketch` 代码生成自动化体系的"总指挥"，定义了一个完整的 5 阶段流水线

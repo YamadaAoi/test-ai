@@ -1,4 +1,5 @@
 ---
+name: sketch-layout
 description: 根据组件规划表，完成路由配置和父组件布局（子容器 div + import）
 mode: subagent
 temperature: 0.1

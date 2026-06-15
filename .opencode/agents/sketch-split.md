@@ -1,4 +1,5 @@
 ---
+name: sketch-split
 description: 提取 Sketch 画板设计信息，拆分组件规划，创建组件和描述文档
 mode: subagent
 temperature: 0.1

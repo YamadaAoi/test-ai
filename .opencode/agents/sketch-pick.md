@@ -1,4 +1,5 @@
 ---
+name: sketch-pick
 description: 提取 Sketch Meaxure 设计稿 (zip/folder) 里所有画板，供用户单选
 mode: subagent
 temperature: 0.1
