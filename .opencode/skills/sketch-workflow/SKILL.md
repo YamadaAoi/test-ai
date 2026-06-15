@@ -102,7 +102,7 @@ interface ArtboardState {
   - 若不存在，委托子agent `sketch-init`，**严格按照**以下模板传入所需参数，不得自行添加或省略参数，等待返回 `INIT_SUCCESS`
 
   ```
-  请为当前项目初始化 sketch 工作流配置
+  请为当前项目初始化 sketch 工作流配置，**禁止自行解压**压缩文件
 
   项目信息：
   - 工作目录：<WORK_DIR>
@@ -116,7 +116,7 @@ interface ArtboardState {
 - 委托子agent `sketch-pick`，**严格按照**以下模板传入所需参数，不得自行添加或省略参数，等待用户选定画板
 
   ```
-  请从 Sketch Meaxure 导出文件中枚举所有画板供用户选择
+  请从 Sketch Meaxure 导出文件中枚举所有画板供用户选择，**禁止自行解压**压缩文件
 
   文件路径：<FILE_PATH>
   ```
@@ -145,7 +145,7 @@ interface ArtboardState {
 - 1. 委托子agent `sketch-split`，**严格按照**以下模板传入所需参数，不得自行添加或省略参数，等待返回 `SPLIT_SUCCESS`
 
   ```
-  请分析 Sketch 画板设计稿，拆分组件规划
+  请分析 Sketch 画板设计稿，拆分组件规划，**禁止自行解压**压缩文件
 
   文件信息：
   - 文件路径：<FILE_PATH>
@@ -170,7 +170,7 @@ interface ArtboardState {
 - 1. 委托子agent `sketch-layout`，**严格按照**以下模板传入所需参数，不得自行添加或省略参数，等待返回 `LAYOUT_SUCCESS`
 
   ```
-  请为 Sketch 画板的组件执行布局配置
+  请为 Sketch 画板的组件执行布局配置，**禁止自行解压**压缩文件
 
   画板信息：
   - 页面名称：<pageName>
@@ -193,7 +193,7 @@ interface ArtboardState {
 - 3. 并行委托子agent `sketch-draw`，**严格按照**以下模板传入所需参数，不得自行添加或省略参数，等待返回 `DRAW_SUCCESS`
 
   ```
-  请为 Sketch 画板的指定组件生成功能代码
+  请为 Sketch 画板的指定组件生成功能代码，**禁止自行解压**任何压缩文件
 
   组件信息：
   - 组件路径：<componentPath>
